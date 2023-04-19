@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Modal } from 'react-native';
-
+import { Input } from 'native-base';
+import DateTimePickerScreen from './DateTimePicker';
 const Form = ({ isVisible, onClose }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -13,6 +14,7 @@ const Form = ({ isVisible, onClose }) => {
   const [location, setLocation] = useState('');
   const [startTime, setStartTime] = useState('');
   const [extraInfo, setExtraInfo] = useState('');
+  const [date, setDate] = useState(new Date());
   
   const handleSubmit = () => {
     // Do something with the form data here
@@ -37,19 +39,20 @@ const Form = ({ isVisible, onClose }) => {
   
   return (
     <Modal visible={isVisible}>
-      <View style={{ padding: 20 }}>
+      <View style={{ flex: 1, justifyContent: 'space-between', padding:20 }}>
         <Text style={{ fontSize: 20 }}>Fill out the form:</Text>
-        <TextInput placeholder="First Name" value={firstName} onChangeText={text => setFirstName(text)} />
-        <TextInput placeholder="Last Name" value={lastName} onChangeText={text => setLastName(text)} />
-        <TextInput placeholder="Job Title" value={jobTitle} onChangeText={text => setJobTitle(text)} />
-        <TextInput placeholder="Job Description" value={JobDescription} onChangeText={text => setJobDescription(text)} />
-        <TextInput placeholder="Pay" value={pay} onChangeText={text => setPay(text)} />
-        <TextInput placeholder="Hourly?" value={hourly} onChangeText={text => setHourly(text)} />
-        <TextInput placeholder="How long will the job take?" value={completionTime} onChangeText={text => setCompletionTime(text)} />
-        <TextInput placeholder="How many workers needed?" value={workers} onChangeText={text => setWorkers(text)} />
-        <TextInput placeholder="Job Location" value={location} onChangeText={text => setLocation(text)} />
-        <TextInput placeholder="Start Time" value={startTime} onChangeText={text => setStartTime(text)} />
-        <TextInput placeholder="Extra Info" value={extraInfo} onChangeText={text => setExtraInfo(text)} />
+        <Input variant="rounded" placeholder="First Name" value={firstName} onChangeText={text => setFirstName(text)} />
+        <Input variant="rounded" placeholder="Last Name" value={lastName} onChangeText={text => setLastName(text)} />
+        <Input variant="rounded" placeholder="Job Title" value={jobTitle} onChangeText={text => setJobTitle(text)} />
+        <Input variant="rounded" placeholder="Job Description" value={JobDescription} onChangeText={text => setJobDescription(text)} />
+        <Input variant="rounded" placeholder="Pay" value={pay} onChangeText={text => setPay(text)} />
+        <Input variant="rounded" placeholder="Hourly?" value={hourly} onChangeText={text => setHourly(text)} />
+        <Input variant="rounded" placeholder="How long will the job take?" value={completionTime} onChangeText={text => setCompletionTime(text)} />
+        <Input variant="rounded" placeholder="How many workers needed?" value={workers} onChangeText={text => setWorkers(text)} />
+        <Input variant="rounded" placeholder="Job Location" value={location} onChangeText={text => setLocation(text)} />
+        <Input variant="rounded" placeholder="Start Time" value={startTime} onChangeText={text => setStartTime(text)} />
+        <Input variant="rounded" placeholder="Extra Info" value={extraInfo} onChangeText={text => setExtraInfo(text)} />
+        <DateTimePickerScreen />
         <Button title="Submit" onPress={handleSubmit} />
         <Button title="Close" onPress={onClose} />
       </View>

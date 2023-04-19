@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Welcome to the App!</Text>
+      <Text style={styles.heading}>Welcome to Hustle!</Text>
       <Button title="Go to Profile" onPress={() => navigation.navigate('Profile')} />
       <Button title="Go to Job Postings" onPress={() => navigation.navigate('JobPostings')} />
     </View>
